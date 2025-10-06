@@ -1,0 +1,47 @@
+name: Deployment
+
+on:
+  workflow_dispatch:
+    inputs:
+      environment:
+        type: choice
+        description: Environment
+        options:
+          - staging
+
+# Cancels all previous workflow runs for pull requests that have not completed.
+concurrency:
+  # The concurrency group contains the workflow name.
+  group: ${{ github.workflow }}
+  cancel-in-progress: true
+
+jobs:
+  php-compatibility:
+    name: PHP compatibility
+    uses: ./.github/workflows/php-code-quality.yml
+    with:
+      coding-standards: false
+      compatibility: true
+      static-analysis: false
+
+  json-schema:
+    name: Schema validation
+    uses: ./.github/workflows/json-schema.yml
+
+  build:
+    name: Build
+    needs: [php-compatibility, json-schema]
+    uses: ./.github/workflows/build.yml
+
+  deploy:
+    name: Deploy
+    needs: build
+    uses: ./.github/workflows/deploy.yml
+    with:
+      environment: ${{ inputs.environment }}
+      url: ${{ vars.URL }}
+    secrets:
+      SSH_KEY: ${{ secrets.SSH_KEY }}
+      SSH_CONFIG: ${{ secrets.SSH_CONFIG }}
+      KNOWN_HOSTS: ${{ secrets.KNOWN_HOSTS }}
+      DEPLOY_PATH: ${{ secrets.DEPLOY_PATH }}

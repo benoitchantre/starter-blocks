@@ -1,0 +1,15 @@
+parameters:
+	level: 8
+	bootstrapFiles:
+		- tests/phpstan-bootstrap.php
+	paths:
+		- starter-blocks.php
+		- src
+	excludePaths:
+		- vendor
+		- node_modules (?)
+		- build (?)
+	tmpDir: .cache/phpstan
+	ignoreErrors:
+		# Allow empty array foreach for future script handles
+		- '#Empty array passed to foreach#'
