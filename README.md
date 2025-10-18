@@ -76,12 +76,58 @@ The plugin will automatically discover and register all blocks in the build dire
 
 ## Development Commands
 
+### NPM scripts
 - `npm run start` - Start development mode with hot reload
 - `npm run build` - Build all blocks for production
 - `npm run lint:js` - Lint JavaScript files
 - `npm run format` - Format code
 - `npm run create-block` - Create a new block with guided setup
+
+### Composer scripts
 - `composer run phpcs` - Check PHP coding standards
 - `composer run phpcbf` - Fix PHP coding standards
 - `composer run phpcompat` - Check PHP compatibility
 - `composer run phpstan` - Run static analysis on PHP files
+
+## GitHub workflows
+
+| Workflow                | Trigger                                       | Actions                                                                                                         |
+|-------------------------|-----------------------------------------------|-----------------------------------------------------------------------------------------------------------------|
+| PHP Code Quality        | Push/PR to main, PHP file changes             | • Coding standards (PHPCS)<br>• Compatibility checks<br>• Static analysis (PHPStan)                             |
+| JavaScript Code Quality | Push/PR to main, JS file changes              | • Linting (ESLint)<br>• Node.js compatibility checks                                                            |
+| Validate JSON files     | Push/PR to main, theme.json or styles changes | • JSON syntax validation<br>• theme.json schema validation<br>• Block styles validation                         |
+| Build                   | Push/PR to main, build-related changes        | • Build theme assets<br>• Run unit tests<br>• Generate language files<br>• Create distributable archive         |
+| Release                 | New version tag                               | • Build theme<br>• Create GitHub release<br>• Upload theme archive                                              |
+| Deployment              | Manual trigger                                | • Verify PHP compatibility<br>• Validate JSON schema<br>• Build theme assets<br>• Deploy to staging environment |
+
+## Deployment configuration
+
+The deployment workflow requires the following configuration in your GitHub repository.
+
+### Environment variables
+- `URL`: The URL of your environment (e.g., `https://staging.example.com`)
+
+### Environment secrets
+- `SSH_KEY`: Your private SSH key for server authentication
+- `SSH_CONFIG`: SSH configuration for your server. The `Host` need to be derived from the `URL` variable while `HostName` is the actual server IP or domain name:
+  ```
+  Host staging.example.com
+    HostName 123.123.123.123
+    User deploy
+    Port 22
+  ```
+
+- `KNOWN_HOSTS`: SSH known hosts entries for your server (use the server address)
+  ```bash
+  # Get the known hosts entry
+  ssh-keyscan -H staging.example.com
+  ```
+
+- `DEPLOY_PATH`: Path to the plugin directory
+  ```
+  /var/www/staging.example.com/wp-content/plugins/starter-blocks
+  ```
+
+### Server requirements
+- SSH access configured with the deployment public key in `~/.ssh/authorized_keys`
+- Write permissions on the theme directory for the SSH-authenticated user
