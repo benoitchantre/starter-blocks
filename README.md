@@ -1,4 +1,4 @@
-# Starter Block Plugin
+# Starter Blocks
 
 A plugin boilerplate focused on custom block development.
 
