@@ -99,7 +99,7 @@ jobs:
 
       - name: Check that composer.json has an autoload section
         id: composer-autoloader
-        run: echo "is-used=jq -e '.autoload' composer.json" >> $GITHUB_OUTPUT
+        run: echo "is-used=$(jq -e '.autoload' composer.json >/dev/null && echo true || echo false)" >> $GITHUB_OUTPUT
 
       - name: Extract required PHP version from starter-blocks.php
         id: required-php-version
