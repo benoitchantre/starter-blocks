@@ -45,7 +45,7 @@ jobs:
         id: get_version
         run: echo "version=${GITHUB_REF#refs/tags/}" >> $GITHUB_OUTPUT
 
-        - name: Create archive
+      - name: Create archive
         id: archive
         run: |
           cd dist
