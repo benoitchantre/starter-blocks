@@ -10,7 +10,7 @@ This is a **WordPress plugin boilerplate** focused on custom block development u
 - **Project Type:** WordPress Plugin
 - **Repository Size:** Small (~50 files)
 - **Build System:** @wordpress/scripts (Webpack-based)
-- **Node.js Version:** 20 (see `.nvmrc`)
+- **Node.js Version:** 20 to 24 (currently 22, see `.nvmrc`)
 
 ## Build and Development Workflow
 
@@ -73,7 +73,7 @@ starter-blocks/
 ```
 
 ### Configuration Files
-- **`.nvmrc`** - Node.js version (20)
+- **`.nvmrc`** - Node.js version (22)
 - **`.wp-env.json`** - WordPress development environment (PHP 8.4, Docker-based)
 - **`phpcs.xml.dist`** - PHP coding standards (WordPress standards)
 - **`phpstan.neon.dist`** - Static analysis config (level 8)
@@ -140,7 +140,7 @@ This scaffolds a new block with proper structure and configuration in the `src/`
 - **Formatting issues** - Always run `npm run format` before committing
 
 ### Environment Issues
-- **Node version mismatch** - Ensure Node.js 20 is installed (check `.nvmrc`)
+- **Node version mismatch** - Ensure Node.js 20+ is installed (check `.nvmrc`)
 - **Memory limits** - PHPStan is configured with 512M memory limit
 - **Cache issues** - Clear `.cache/` directory if builds behave unexpectedly
 
