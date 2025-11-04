@@ -2,6 +2,13 @@
 
 A plugin boilerplate focused on custom block development.
 
+## Requirements
+
+- **PHP:** 8.1 or higher
+- **WordPress:** 6.8 or higher
+- **Node.js:** 20 or higher (see `.nvmrc` for current version)
+- **Composer:** Latest version
+
 ## Quick Start
 
 1. **Install dependencies:**
