@@ -78,7 +78,7 @@ starter-blocks/
 - **`phpcs.xml.dist`** - PHP coding standards (WordPress standards)
 - **`phpstan.neon.dist`** - Static analysis config (level 8)
 - **`phpcompat.xml.dist`** - PHP compatibility rules
-- **`.eslintrc.js`** - JavaScript linting (WordPress standards)
+- **`.eslint.config.js`** - JavaScript linting (WordPress standards)
 - **`package.json`** - Build scripts and dependencies
 - **`composer.json`** - PHP dependencies and quality tools
 
