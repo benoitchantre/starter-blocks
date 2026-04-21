@@ -2,13 +2,13 @@
 Contributors: benoitchantre
 Tags: blocks, gutenberg, block-development, custom-blocks
 Requires at least: 6.8
-Tested up to: 6.8.3
+Tested up to: 6.9.4
 Requires PHP: 8.1
 Stable tag: 0.0.1
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-A simple WordPress plugin boilerplate focused on custom block development.
+A WordPress plugin with blocks.
 
 == Installation ==
 
