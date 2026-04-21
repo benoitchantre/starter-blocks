@@ -10,7 +10,7 @@ This is a **WordPress plugin boilerplate** focused on custom block development u
 - **Project Type:** WordPress Plugin
 - **Repository Size:** Small (~50 files)
 - **Build System:** @wordpress/scripts (Webpack-based)
-- **Node.js Version:** 20 to 24 (currently 22, see `.nvmrc`)
+- **Node.js Version:** 20 to 24 (currently 24, see `.nvmrc`)
 
 ## Build and Development Workflow
 
@@ -73,7 +73,7 @@ starter-blocks/
 ```
 
 ### Configuration Files
-- **`.nvmrc`** - Node.js version (22)
+- **`.nvmrc`** - Node.js version (24)
 - **`.wp-env.json`** - WordPress development environment (PHP 8.4, Docker-based)
 - **`phpcs.xml.dist`** - PHP coding standards (WordPress standards)
 - **`phpstan.neon.dist`** - Static analysis config (level 8)
