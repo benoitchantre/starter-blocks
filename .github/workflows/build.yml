@@ -8,7 +8,7 @@ on:
       # This file contains the excluded files from the dist archive. Changes could affect the outcome.
       - '.distignore'
       # This file contains the PHP version to use. Changes could affect the outcome.
-      - 'style.css'
+      - 'starter-blocks.php'
       # This file configures the Node.js version to use. Changes could affect the outcome.
       - '.nvmrc'
       # These files configure NPM. Changes could affect the outcome.
@@ -30,7 +30,7 @@ on:
       # This file contains the excluded files from the dist archive. Changes could affect the outcome.
       - '.distignore'
       # This file contains the PHP version to use. Changes could affect the outcome.
-      - 'style.css'
+      - 'starter-plugin.php'
       # This file configures the Node.js version to use. Changes could affect the outcome.
       - '.nvmrc'
       # These files configure NPM. Changes could affect the outcome.
